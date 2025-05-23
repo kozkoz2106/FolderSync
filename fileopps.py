@@ -2,7 +2,7 @@ import shutil
 import os
 import subprocess
 
-def experiment(start_dir='/', folder_name='example.txt'):
+def find_folder(start_dir='/', folder_name='example.txt'):
     for root, dirs, files in os.walk(start_dir):
         for dir in dirs:
             if dir == folder_name:
@@ -16,6 +16,7 @@ def experiment(start_dir='/', folder_name='example.txt'):
 def clone():
     source = input("Enter a source folder \n")
     destination = input("Enter a destination folder\n")
+
     sourceDIR = "/Users/aarohpurani/git-files/test folders/pcFolder"
     destinationDIR = "/Users/aarohpurani/git-files/test folders/usbFolder"   
 

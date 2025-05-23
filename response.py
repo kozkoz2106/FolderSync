@@ -1,6 +1,5 @@
 import sys, os
-from fileopps import clone, push, experiment
-import response
+from fileopps import *
 
 def commands(command):
     if command == "--help":
@@ -16,7 +15,7 @@ def commands(command):
         print(message)
     
     elif command == "--experiment":
-        experiment('/Users/aarohpurani', 'brainrot')
+        find_folder('/Users/aarohpurani', 'brainrot')
 
     #elif command == "Merge files":
 
