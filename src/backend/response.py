@@ -1,5 +1,6 @@
 import sys, os
-from operations import *
+from operations import clone, push
+import response
 
 def commands(command):
     if command == "--help":
@@ -13,9 +14,6 @@ def commands(command):
     elif command == "--push":
         message = push()
         print(message)
-    
-    elif command == "--find_folder":
-        find_folder('/Users/aarohpurani', 'brainrot')
 
     #elif command == "Merge files":
 
