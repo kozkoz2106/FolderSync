@@ -8,10 +8,13 @@ import json
 
 input = input().split(' ', maxsplit=2)
 file = input[0]
-command = input[1]
-
-if file != 'gitfile' :
+if file == 'quit':
+    exit(0)
+elif file != 'gitfile' :
     print(file + " is not a valid command. See 'gitfile --help'.")
     exit(0)
-    
-commands(command)
+elif len(input) != 2:
+    print('Two arguments are needed: "gitfile" and a command.')
+else:
+    command = input[1]
+    commands(command)
