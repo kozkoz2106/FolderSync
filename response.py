@@ -14,7 +14,7 @@ def commands(command):
         message = push()
         print(message)
     
-    elif command == "--experiment":
+    elif command == "--find_folder":
         find_folder('/Users/aarohpurani', 'brainrot')
 
     #elif command == "Merge files":
