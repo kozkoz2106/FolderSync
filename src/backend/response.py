@@ -1,6 +1,5 @@
 import sys, os
-from operations import clone, push
-import response
+from operations import *
 
 def commands(command):
     if command == "--help":
