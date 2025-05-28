@@ -1,2 +1,5 @@
 #virtual environment
 venv/
+
+#pychache
+__pycache__/
