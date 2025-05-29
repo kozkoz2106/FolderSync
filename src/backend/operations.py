@@ -1,7 +1,5 @@
 import shutil
 import os
-#import subprocess
-#import pyusb
 from find_folder import *
 
 not_found = 'Folder not found'
