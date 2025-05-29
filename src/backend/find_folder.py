@@ -16,3 +16,5 @@ def find_folder(start_dir='/', folder_name='Images'):
             if folder_name in dirs:
                 folder_path = os.path.join(root, folder_name)
                 return folder_path
+            
+    return 'not found'
