@@ -2,8 +2,9 @@ import shutil
 import os
 #import subprocess
 #import pyusb
-#from tkinter import *
 from find_folder import *
+
+not_found = 'Folder not found'
 
 def clone():
     source = input("Enter a source folder: ")
@@ -12,6 +13,7 @@ def clone():
     destinationDIR = find_folder('/Users/aarohpurani/', destination)
 
     sourceDIR_name = (os.path.basename(sourceDIR))
+    #if (sourceDIR_name == )
     destinationDIR_name = (os.path.basename(destinationDIR))
 
     shutil.copytree(sourceDIR, destinationDIR, dirs_exist_ok=True)
