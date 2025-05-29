@@ -8,8 +8,8 @@ from find_folder import *
 def clone():
     source = input("Enter a source folder: ")
     destination = input("Enter a destination folder: ")
-    sourceDIR = find_folder_local('/Users/aarohpurani/', source)
-    destinationDIR = find_folder_local('/Users/aarohpurani/', destination)
+    sourceDIR = find_folder('/Users/aarohpurani/', source)
+    destinationDIR = find_folder('/Users/aarohpurani/', destination)
 
     sourceDIR_name = (os.path.basename(sourceDIR))
     destinationDIR_name = (os.path.basename(destinationDIR))
@@ -20,8 +20,8 @@ def clone():
 def push():
     source = input("Enter a source folder: ")
     destination = input("Enter a destination folder: ")
-    sourceDIR = find_folder_local('/Users/aarohpurani/', source)
-    destinationDIR = find_folder_local('/Users/aarohpurani/', destination)
+    sourceDIR = find_folder('/Users/aarohpurani/', source)
+    destinationDIR = find_folder('/Users/aarohpurani/', destination)
 
     sourceDIR_name = (os.path.basename(sourceDIR))
     destinationDIR_name = (os.path.basename(destinationDIR))
