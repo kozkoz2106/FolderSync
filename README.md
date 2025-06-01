@@ -1,9 +1,16 @@
 Simple program for synchronising folders. 
 
-Commands: 
-    - push: Pushes files from one folder to another. 
-    - clone: Copies all files from one folder to another. 
+Current capabilities:
 
-    Functionally the two are the same because before working on the project. I'm still figuring out how I can differentiate them or whether I should just get rid of one. 
+- One-way and two-way file syncing
 
-    Planning to make this a desktop app for Mac. A version for Windows will come later. 
+In progress:
+
+- Simple and accessible UI
+
+Long-term goals:
+
+- Version control
+- Greater control over what files are being synced
+- Merging folders into one
+- Ability to back up an entire storage device such as a USB without duplicates if files already exist on the destination device. Essentially syncing but on a larger scale.
