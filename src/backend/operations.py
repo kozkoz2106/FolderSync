@@ -2,8 +2,6 @@ import shutil
 import os
 from find_folder import *
 
-not_found = 'Folder not found'
-
 def syncOneWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name):
     shutil.copytree(sourceDIR, destinationDIR, dirs_exist_ok=True)
     return "The contents of " + sourceDIR_name + " have been copied into " + destinationDIR_name + "."
