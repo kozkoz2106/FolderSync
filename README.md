@@ -6,6 +6,7 @@ Current capabilities:
 
 In progress:
 
+- Handling syncing between folders containing files with the same name but different content.
 - Simple and accessible UI
 
 Long-term goals:
