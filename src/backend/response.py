@@ -7,3 +7,4 @@ def commands(command):
         message = sync()
         print(message)
 
+b
