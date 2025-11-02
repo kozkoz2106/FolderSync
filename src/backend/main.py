@@ -11,7 +11,7 @@ if file == 'quit':
     exit(0)
 elif file != 'gitfile' :
     print(file + " is not a valid command. See 'gitfile --help'.")
-    exit(0)b
+    exit(0)
 elif len(input) != 2:
     print('Two arguments are needed: "gitfile" and a command.')
 else:
