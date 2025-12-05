@@ -14,9 +14,11 @@ def syncBothWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name):
 
 # PRIMARY FUNCTIONS
 def sync():
+
     source = input("Enter a source folder: ")
     home_path = os.path.expanduser("~")
     sourceDIR = find_folder(home_path, source)
+
     if sourceDIR == 'not found':
         print('Folder ' + source + ' not found')
         exit(0)
@@ -24,6 +26,7 @@ def sync():
 
     destination = input("Enter a destination folder: ")
     destinationDIR = find_folder(home_path, destination)
+
     if destinationDIR == 'not found':
         print('Folder ' + destination + ' not found')
         exit(0)
