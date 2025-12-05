@@ -37,4 +37,3 @@ def sync():
         return syncOneWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name)
     elif sync_type == 'yes':
         return syncBothWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name)
-    
