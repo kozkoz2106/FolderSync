@@ -1,4 +1,5 @@
 from operations import *
+import shutil
 
 def commands(command):
     if command == "--help":
@@ -6,5 +7,5 @@ def commands(command):
     elif command == "--sync":
         message = sync()
         print(message)
-
-b
+    elif command == "--print":
+        print(shutil.__file__)
