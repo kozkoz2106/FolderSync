@@ -1,15 +1,15 @@
-import shutil
+from utilities import *
 import os
 from find_folder import *
 
 # HELPER FUNCTIONS
 def syncOneWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name):
-    shutil.copytree(sourceDIR, destinationDIR, dirs_exist_ok=True)
+    copytree(sourceDIR, destinationDIR, dirs_exist_ok=True)
     return "The contents of " + sourceDIR_name + " have been copied into " + destinationDIR_name + "."
 
 def syncBothWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name):
-    shutil.copytree(sourceDIR, destinationDIR, dirs_exist_ok=True)
-    shutil.copytree(destinationDIR, sourceDIR, dirs_exist_ok=True)
+    copytree(sourceDIR, destinationDIR, dirs_exist_ok=True)
+    copytree(destinationDIR, sourceDIR, dirs_exist_ok=True)
     return "The contents of " + sourceDIR_name + " and " + destinationDIR_name + " have been synced both ways."
 
 # PRIMARY FUNCTIONS
