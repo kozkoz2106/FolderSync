@@ -8,8 +8,8 @@ def syncOneWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name):
     return "The contents of " + sourceDIR_name + " have been copied into " + destinationDIR_name + "."
 
 def syncBothWay(sourceDIR, destinationDIR, sourceDIR_name, destinationDIR_name):
-    copytree(sourceDIR, destinationDIR, dirs_exist_ok=True)
-    copytree(destinationDIR, sourceDIR, dirs_exist_ok=True)
+    copytree(sourceDIR, destinationDIR, True)
+    copytree(destinationDIR, sourceDIR, True)
     return "The contents of " + sourceDIR_name + " and " + destinationDIR_name + " have been synced both ways."
 
 # PRIMARY FUNCTIONS
