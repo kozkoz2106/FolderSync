@@ -3,16 +3,15 @@ import os
 from find_folder import *
 
 # HELPER FUNCTIONS
-def syncOneWay(source_list, destinationDIR, destinationDIR_name):
+def syncFiles(source_list, destinationDIR, destinationDIR_name, one_way):
     for item in source_list: 
         copytree(item, destinationDIR, dirs_exist_ok=True)
-
-    return "The contents of have been copied into " + destinationDIR_name + "."
-
-def syncBothWay(sourceDIR, destinationDIR, source_list, destinationDIR_name):
-    copytree(sourceDIR, destinationDIR, True)
-    copytree(destinationDIR, sourceDIR, True)
-    return "The contents of " + sourceDIR_name + " and " + destinationDIR_name + " have been synced both ways."
+    if one_way == False:
+        return "The contents of your sources have been copied into " + destinationDIR_name + "."
+    else:  
+        for item in source_list:
+            copytree(destinationDIR, item, dirs_exist_ok=True)
+        return "The contents of your sources and " + destinationDIR_name + " have been synced both ways."
 
 # PRIMARY FUNCTIONS
 def sync():
@@ -41,12 +40,14 @@ def sync():
         exit(0)
     destinationDIR_name = (os.path.basename(destinationDIR))
 
+    one_way = False
     sync_type = input("Two way syncing? Type 'yes' or 'no': ")
 
     while sync_type != 'yes' and sync_type != 'no':
         sync_type = input("Not a valid command. Type 'yes' or 'no': ")
     
     if sync_type == 'no':
-        return syncOneWay(source_list, destinationDIR, destinationDIR_name)
-    elif sync_type == 'yes':
-        return syncBothWay(source_list, destinationDIR, destinationDIR_name)
+        return syncFiles(source_list, destinationDIR, destinationDIR_name, one_way)
+    else:
+        one_way = True
+        return syncFiles(source_list, destinationDIR, destinationDIR_name, one_way)
