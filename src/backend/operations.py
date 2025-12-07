@@ -4,7 +4,6 @@ from find_folder import *
 
 # HELPER FUNCTIONS
 def syncFiles(source_list, dest_list, one_way):
-    print('a')
     for source in source_list: 
         for dest in dest_list:
             copytree(source, dest, dirs_exist_ok=True)
@@ -32,6 +31,7 @@ def sync():
         source = input()
         if source == 'done':
             break
+
         sourceDIR = find_folder(home_path, source)
         if sourceDIR == 'not found':
             print('Folder ' + source + ' not found')
@@ -42,19 +42,16 @@ def sync():
     print("Enter a destination folder: ")
 
     while (input != 'done'):
-        print('a')
         dest = input()
         if dest == 'done':
             break
+
         destDIR = find_folder(home_path, dest)
         if destDIR == 'not found':
-            print('b')
             print('Folder ' + dest + ' not found')
         else:
-            print('c')
             print(dest + ' selected')
             dest_list.append(destDIR)
-        print('d')
 
     one_way = False
     sync_type = input("Two way syncing? Type 'yes' or 'no': ")
@@ -62,9 +59,8 @@ def sync():
     while sync_type != 'yes' and sync_type != 'no':
         sync_type = input("Not a valid command. Type 'yes' or 'no': ")
     
-    if sync_type == 'no':
-        return syncFiles(source_list, dest_list, one_way)
-    else:
+    if sync_type == 'yes':
         one_way = True
-        return syncFiles(source_list, dest_list, one_way)
+
+    return syncFiles(source_list, dest_list, one_way)
     
