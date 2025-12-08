@@ -1,8 +1,8 @@
 from utilities import *
 import os
+import subprocess
 from find_folder import *
 
-# HELPER FUNCTIONS
 def syncFiles(source_list, dest_list, one_way):
     for source in source_list: 
         for dest in dest_list:
@@ -18,7 +18,6 @@ def syncFiles(source_list, dest_list, one_way):
                 copytree(source, dest, dirs_exist_ok=True)
         return "The contents of your source(s) and destination(s) have been synced both ways."
 
-# PRIMARY FUNCTIONS
 def sync():
 
     home_path = os.path.expanduser("~")
@@ -63,4 +62,10 @@ def sync():
         one_way = True
 
     return syncFiles(source_list, dest_list, one_way)
-    
+
+def testFinder():
+    script = '''set theFolder to choose folder 
+                POSIX path of theFolder'''
+
+    result = subprocess.run(['osascript', '-e', script], capture_output=True, text=True)
+    return result.stdout.strip()

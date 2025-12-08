@@ -7,3 +7,6 @@ def commands(command):
     elif command == "--sync":
         message = sync()
         print(message)
+    elif command == "--testfinder":
+        file_path = testFinder()
+        print("You picked:", file_path)
