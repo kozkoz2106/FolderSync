@@ -25,32 +25,10 @@ def sync():
     dest_list = []
 
     print("Enter a source folder(s): ")
-
-    while (input != 'done'):
-        source = input()
-        if source == 'done':
-            break
-
-        sourceDIR = find_folder(home_path, source)
-        if sourceDIR == 'not found':
-            print('Folder ' + source + ' not found')
-        else:
-            print(source + ' selected')
-            source_list.append(sourceDIR)
-
+    source_list = testFinder()
+    
     print("Enter a destination folder: ")
-
-    while (input != 'done'):
-        dest = input()
-        if dest == 'done':
-            break
-
-        destDIR = find_folder(home_path, dest)
-        if destDIR == 'not found':
-            print('Folder ' + dest + ' not found')
-        else:
-            print(dest + ' selected')
-            dest_list.append(destDIR)
+    dest_list = testFinder()
 
     one_way = False
     sync_type = input("Two way syncing? Type 'yes' or 'no': ")
