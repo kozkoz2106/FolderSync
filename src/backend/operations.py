@@ -64,8 +64,19 @@ def sync():
     return syncFiles(source_list, dest_list, one_way)
 
 def testFinder():
-    script = '''set theFolder to choose folder 
-                POSIX path of theFolder'''
+    script = '''
+    set theFolders to choose folder with multiple selections allowed
+    set output to ""
+    repeat with f in theFolders
+        set output to output & (POSIX path of f) & linefeed
+    end repeat
+    return output
+    '''
+    
+    result = subprocess.run(
+        ["osascript", "-e", script],
+        capture_output=True,
+        text=True
+    )
 
-    result = subprocess.run(['osascript', '-e', script], capture_output=True, text=True)
-    return result.stdout.strip()
+    return [line for line in result.stdout.splitlines() if line.strip()]
