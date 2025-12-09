@@ -2,7 +2,7 @@ Simple program for synchronising folders.
 
 Current capabilities:
 
-- One-way and two-way file syncing
+- One-way and two-way file syncing, with multiple folders at either end. 
 
 In progress:
 
