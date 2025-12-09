@@ -10,3 +10,6 @@ def commands(command):
     elif command == "--testfinder":
         file_path = testFinder()
         print("You picked:", file_path)
+    elif command == "--testimage":
+        image_path = testImage()
+        print("You picked:", image_path)

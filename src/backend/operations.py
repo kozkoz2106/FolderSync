@@ -2,6 +2,7 @@ from utilities import *
 import os
 import subprocess
 from find_folder import *
+from PIL import Image
 
 def syncFiles(source_list, dest_list, one_way):
     for source in source_list: 
@@ -19,14 +20,12 @@ def syncFiles(source_list, dest_list, one_way):
         return "The contents of your source(s) and destination(s) have been synced both ways."
 
 def sync():
-
-    home_path = os.path.expanduser("~")
     source_list = []
     dest_list = []
 
     print("Enter a source folder(s): ")
     source_list = testFinder()
-    
+
     print("Enter a destination folder: ")
     dest_list = testFinder()
 
@@ -58,3 +57,10 @@ def testFinder():
     )
 
     return [line for line in result.stdout.splitlines() if line.strip()]
+
+def testImage():
+    path2 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Dest1/e.jpg"
+    img = Image.open(path2)
+    img.show()
+
+    return path2
