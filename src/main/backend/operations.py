@@ -2,7 +2,8 @@ from utilities import *
 import os
 import subprocess
 from PIL import Image
-import hashlib
+
+from utilities import compare_hash
 
 def syncFiles(source_list, dest_list, one_way):
     for source in source_list: 
@@ -59,22 +60,4 @@ def selectFolders():
     return [line for line in result.stdout.splitlines() if line.strip()]
 
 def compHash():
-    path1 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Source1/a.jpg"
-    path2 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Dest1/b.jpg"
-
-    hasher1 = hashlib.md5()
-    hasher2 = hashlib.md5()
-
-    with open(path1, 'rb') as f1, open(path2, 'rb') as f2:
-        buf1 = f1.read()
-        buf2 = f2.read()
-        hasher1.update(buf1)
-        hasher2.update(buf2)
-
-    hash1 = hasher1.hexdigest()
-    hash2 = hasher2.hexdigest()
-
-    if hash1 == hash2 and str(path1) == str(path2):
-        return True
-    else:
-        return False
+    return compare_hash()

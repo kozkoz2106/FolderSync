@@ -10,6 +10,7 @@ import stat
 import fnmatch
 import collections
 import errno
+import hashlib
 
 try:
     import zlib
@@ -480,6 +481,35 @@ def ignore_patterns(*patterns):
             ignored_names.extend(fnmatch.filter(names, pattern))
         return set(ignored_names)
     return _ignore_patterns
+
+def list_to_rename(list):
+    """"List path of files to rename
+
+    Collects paths of files from the source that have the same name 
+    as files from the destination and thus need to be renamed otherwise 
+    the file in the destination will be overwritten during syncing.
+    """
+
+def compare_hash():
+    path1 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Source1/a.jpg"
+    path2 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Dest1/b.jpg"
+
+    hasher1 = hashlib.md5()
+    hasher2 = hashlib.md5()
+
+    with open(path1, 'rb') as f1, open(path2, 'rb') as f2:
+        buf1 = f1.read()
+        buf2 = f2.read()
+        hasher1.update(buf1)
+        hasher2.update(buf2)
+
+    hash1 = hasher1.hexdigest()
+    hash2 = hasher2.hexdigest()
+
+    if hash1 == hash2 and str(path1) == str(path2):
+        return True
+    else:
+        return False   
 
 def _copytree(entries, src, dst, symlinks, ignore, copy_function,
               ignore_dangling_symlinks, dirs_exist_ok=False):
