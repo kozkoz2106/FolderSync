@@ -2,14 +2,23 @@ from operations import *
 from utilities import *
 
 def commands(command):
+    message = ""
     if command == "--help":
-        print("gitfile --sync: Copies all data from a remote repository into an empty folder. Two-way syncing may be enabled. \n")
+        message = ("gitfile --sync: Copies all data from a remote repository into an empty folder. Two-way syncing can be enabled \n" 
+                  "gitfile --merge: Merges selected folders into a single, new folder. \n")
+        print(message)
     elif command == "--sync":
         message = sync()
         print(message)
-    elif command == "--testfinder":
-        file_path = testFinder()
-        print("You picked:", file_path)
+    elif command == "--merge":
+        message = merge()
+        print(message)
     elif command == "--testimage":
         image_path = testImage()
         print("You picked:", image_path)
+    elif command == "--comparehash":
+        hash = compHash()
+        if hash == True:
+            print("The files are identical.")
+        else:
+            print("The files are different.")

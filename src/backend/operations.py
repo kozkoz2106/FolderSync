@@ -1,8 +1,8 @@
 from utilities import *
 import os
 import subprocess
-from find_folder import *
 from PIL import Image
+import hashlib
 
 def syncFiles(source_list, dest_list, one_way):
     for source in source_list: 
@@ -24,10 +24,10 @@ def sync():
     dest_list = []
 
     print("Enter a source folder(s): ")
-    source_list = testFinder()
+    source_list = selectFolders()
 
     print("Enter a destination folder: ")
-    dest_list = testFinder()
+    dest_list = selectFolders()
 
     one_way = False
     sync_type = input("Two way syncing? Type 'yes' or 'no': ")
@@ -40,7 +40,7 @@ def sync():
 
     return syncFiles(source_list, dest_list, one_way)
 
-def testFinder():
+def selectFolders():
     script = '''
     set theFolders to choose folder with multiple selections allowed
     set output to ""
@@ -61,6 +61,32 @@ def testFinder():
 def testImage():
     path2 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Dest1/e.jpg"
     img = Image.open(path2)
+    print(os.stat(path2).st_size)
+    print(os.stat(path2).st_mtime)
+    print(os.stat(path2).st_atime)
+    print(os.stat(path2).st_ctime)
+    print(os.stat(path2).st_mode)
     img.show()
 
     return path2
+
+def compHash():
+    path1 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Source1/a.jpg"
+    path2 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Dest1/b.jpg"
+
+    hasher1 = hashlib.md5()
+    hasher2 = hashlib.md5()
+
+    with open(path1, 'rb') as f1, open(path2, 'rb') as f2:
+        buf1 = f1.read()
+        buf2 = f2.read()
+        hasher1.update(buf1)
+        hasher2.update(buf2)
+
+    hash1 = hasher1.hexdigest()
+    hash2 = hasher2.hexdigest()
+
+    if hash1 == hash2 and str(path1) == str(path2):
+        return True
+    else:
+        return False
