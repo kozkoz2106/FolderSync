@@ -13,9 +13,6 @@ def commands(command):
     elif command == "--merge":
         message = merge()
         print(message)
-    elif command == "--testimage":
-        image_path = testImage()
-        print("You picked:", image_path)
     elif command == "--comparehash":
         hash = compHash()
         if hash == True:

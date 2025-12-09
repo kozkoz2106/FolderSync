@@ -58,18 +58,6 @@ def selectFolders():
 
     return [line for line in result.stdout.splitlines() if line.strip()]
 
-def testImage():
-    path2 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Dest1/e.jpg"
-    img = Image.open(path2)
-    print(os.stat(path2).st_size)
-    print(os.stat(path2).st_mtime)
-    print(os.stat(path2).st_atime)
-    print(os.stat(path2).st_ctime)
-    print(os.stat(path2).st_mode)
-    img.show()
-
-    return path2
-
 def compHash():
     path1 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Source1/a.jpg"
     path2 = r"/Users/aarohpurani/Desktop/FolderSync Sandbox/Dest1/b.jpg"
