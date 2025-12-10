@@ -14,18 +14,18 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(858, 615)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(100, 160, 121, 32))
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(240, 160, 151, 32))
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.select_src = QtWidgets.QPushButton(self.centralwidget)
+        self.select_src.setGeometry(QtCore.QRect(100, 160, 121, 32))
+        self.select_src.setObjectName("select_src")
+        self.select_dst = QtWidgets.QPushButton(self.centralwidget)
+        self.select_dst.setGeometry(QtCore.QRect(410, 160, 151, 32))
+        self.select_dst.setObjectName("select_dst")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 858, 24))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -38,8 +38,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "Select a source"))
-        self.pushButton_2.setText(_translate("MainWindow", "Select a destination"))
+        self.select_src.setText(_translate("MainWindow", "Select a source"))
+        self.select_dst.setText(_translate("MainWindow", "Select a destination"))
 
 
 if __name__ == "__main__":
