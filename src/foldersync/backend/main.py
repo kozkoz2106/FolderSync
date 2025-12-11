@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from response import commands
+from .response import commands
 
 # File pull (copy all data), File push (push data to create new), File merge (integrate changes), File clone (clone file)
 # Each folder has a designated #pull and #push. Designated by a folder that contains a hash bonding it to another folder, 

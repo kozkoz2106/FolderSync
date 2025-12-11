@@ -15,6 +15,7 @@ class MainWindow(QMainWindow):
 
     def srcclick(self):
         print("Source selection button clicked!")
+        print(self.operations.select_sources())
 
     def dstclick(self):
         print("Destination selection button clicked!")

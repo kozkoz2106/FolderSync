@@ -1,5 +1,5 @@
-from operations import *
-from utilities import *
+from .operations import *
+from .utilities import *
 
 def commands(command):
     message = ""
@@ -9,7 +9,7 @@ def commands(command):
                   "gitfile --merge: Merges selected folders into a single, new folder. \n")
         print(message)
     elif command == "--sync":
-        message = operations.syncTerminal()
+        message = operations.terminal_sync()
         print(message)
     elif command == "--comparehash":
         hash = operations.compHash()

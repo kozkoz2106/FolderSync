@@ -1,5 +1,4 @@
 from .utilities import *
-import os
 import subprocess
 from PIL import Image
 
@@ -24,12 +23,15 @@ class SyncOperations:
                     copytree(source, dest, dirs_exist_ok=True)
             return "The contents of your source(s) and destination(s) have been synced both ways."
 
-    def syncTerminal(self):
+    def terminal_sync(self):
         print("Enter a source folder(s): ")
         source_list = self.selectFolders()
 
         print("Enter a destination folder: ")
         dest_list = self.selectFolders()
+
+        if not (source_list and  dest_list):
+            return "Nothing was selected"
 
         one_way = False
         sync_type = input("Two way syncing? Type 'yes' or 'no': ")
@@ -63,6 +65,12 @@ class SyncOperations:
     def compHash(self):
         return compare_hash()
 
-    def syncUI(self):
-        source_list = []
-        dest_list = []
+    def select_src(self):
+        source_list = self.selectFolders()
+        return source_list
+
+    def select_dst(self):
+        dest_list = self.selectFolders()
+        return dest_list
+
+
