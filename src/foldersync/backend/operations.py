@@ -67,10 +67,11 @@ class SyncOperations:
 
     def select_src(self):
         source_list = self.selectFolders()
-        return source_list
 
     def select_dst(self):
         dest_list = self.selectFolders()
-        return dest_list
-
+    
+    def press_sync(self, one_way):
+        return 
+    
 

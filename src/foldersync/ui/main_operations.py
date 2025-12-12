@@ -10,20 +10,20 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.ui.select_src.clicked.connect(self.srcclick)
-        self.ui.select_dst.clicked.connect(self.dstclick)
+        self.ui.src_button.clicked.connect(self.srcclick)
+        self.ui.dst_button.clicked.connect(self.dstclick)
+        self.ui.sync_button.clicked.connect(self.syncclick)
 
     def srcclick(self):
         print("Source selection button clicked!")
-        print(self.operations.select_sources())
+        self.operations.select_sources()
 
     def dstclick(self):
         print("Destination selection button clicked!")
+        self.operations.select_dst()
 
-    def sync_folders(self):
-        message = self.operations.syncUI()
-        print(message)
-
+    def syncclick(self):
+        self.operations.press_sync()
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)

@@ -14,18 +14,21 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(858, 615)
+        MainWindow.resize(575, 315)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.select_src = QtWidgets.QPushButton(self.centralwidget)
-        self.select_src.setGeometry(QtCore.QRect(100, 160, 121, 32))
-        self.select_src.setObjectName("select_src")
-        self.select_dst = QtWidgets.QPushButton(self.centralwidget)
-        self.select_dst.setGeometry(QtCore.QRect(410, 160, 151, 32))
-        self.select_dst.setObjectName("select_dst")
+        self.src_button = QtWidgets.QPushButton(self.centralwidget)
+        self.src_button.setGeometry(QtCore.QRect(80, 80, 121, 32))
+        self.src_button.setObjectName("src_button")
+        self.dst_button = QtWidgets.QPushButton(self.centralwidget)
+        self.dst_button.setGeometry(QtCore.QRect(210, 80, 151, 32))
+        self.dst_button.setObjectName("dst_button")
+        self.sync_button = QtWidgets.QPushButton(self.centralwidget)
+        self.sync_button.setGeometry(QtCore.QRect(370, 80, 51, 32))
+        self.sync_button.setObjectName("sync_button")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 858, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 575, 24))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -38,8 +41,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.select_src.setText(_translate("MainWindow", "Select a source"))
-        self.select_dst.setText(_translate("MainWindow", "Select a destination"))
+        self.src_button.setText(_translate("MainWindow", "Select a source"))
+        self.dst_button.setText(_translate("MainWindow", "Select a destination"))
+        self.sync_button.setText(_translate("MainWindow", "Sync"))
 
 
 if __name__ == "__main__":
